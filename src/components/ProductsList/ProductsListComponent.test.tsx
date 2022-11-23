@@ -11,20 +11,31 @@ test("renders products", () => {
     { name: "banana", id: 3, have: false },
     { name: "pomelo", id: 4, have: false },
   ];
+
+  const findOne = (arr: Product[], id: number) => {
+    const one = arr.filter((item) => item.id === id);
+    return one[0].have;
+  };
+
   render(<ProductsListComponent products={products} />);
-  const productsElement = screen.getAllByRole("product");
-  expect(productsElement[0]).toHaveTextContent(products[0].name);
-  expect(productsElement[0]).toBeInTheDocument();
+  const haveProductsElement = screen.getAllByRole("haveProduct");
+  const wantProductsElement = screen.getAllByRole("wantProduct");
+  expect(haveProductsElement.length).toBe(0);
 
-  expect(productsElement[1]).toHaveTextContent(products[1].name);
-  expect(productsElement[1]).toBeInTheDocument();
+  expect(wantProductsElement[0]).toHaveTextContent(products[0].name);
+  expect(wantProductsElement[0]).toBeInTheDocument();
 
-  expect(productsElement[2]).toHaveTextContent(products[2].name);
-  expect(productsElement[2]).toBeInTheDocument();
+  // expect(findOne(products, 1)).toBeFalsy();
 
-  expect(productsElement[3]).toHaveTextContent(products[3].name);
-  expect(productsElement[3]).toBeInTheDocument();
+  expect(wantProductsElement[1]).toHaveTextContent(products[1].name);
+  expect(wantProductsElement[1]).toBeInTheDocument();
 
-  expect(productsElement[4]).toHaveTextContent(products[4].name);
-  expect(productsElement[4]).toBeInTheDocument();
+  expect(wantProductsElement[2]).toHaveTextContent(products[2].name);
+  expect(wantProductsElement[2]).toBeInTheDocument();
+
+  expect(wantProductsElement[3]).toHaveTextContent(products[3].name);
+  expect(wantProductsElement[3]).toBeInTheDocument();
+
+  expect(wantProductsElement[4]).toHaveTextContent(products[4].name);
+  expect(wantProductsElement[4]).toBeInTheDocument();
 });
