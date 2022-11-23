@@ -1,5 +1,5 @@
 import React from "react";
 
 export const HeaderComponent = () => {
-    return <header>Header</header>
+    return <header role="header" className="header">Shop list</header>
 }
