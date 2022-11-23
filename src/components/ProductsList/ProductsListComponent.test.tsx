@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { ProductsListComponent } from "./ProductsListComponent";
 import { Product } from "./interface";
 
@@ -11,16 +11,13 @@ test("renders products", () => {
     { name: "banana", id: 3, have: false },
     { name: "pomelo", id: 4, have: false },
   ];
-
+  const onClick = jest.fn();
   const findOne = (arr: Product[], id: number) => {
     const one = arr.filter((item) => item.id === id);
     return one[0].have;
   };
-
   render(<ProductsListComponent products={products} />);
-  const haveProductsElement = screen.getAllByRole("haveProduct");
   const wantProductsElement = screen.getAllByRole("wantProduct");
-  expect(haveProductsElement.length).toBe(0);
 
   expect(wantProductsElement[0]).toHaveTextContent(products[0].name);
   expect(wantProductsElement[0]).toBeInTheDocument();
@@ -38,4 +35,8 @@ test("renders products", () => {
 
   expect(wantProductsElement[4]).toHaveTextContent(products[4].name);
   expect(wantProductsElement[4]).toBeInTheDocument();
+
+  fireEvent.click(wantProductsElement[0]);
+  const haveProductsElement = screen.getAllByRole("haveProduct");
+  expect(haveProductsElement.length).toBe(1);
 });
