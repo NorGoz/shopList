@@ -6,5 +6,13 @@ interface Props {
 }
 
 export const ProductsListComponent: FC<Props> = ({ products }) => {
-  return <div>lista</div>;
+  return (
+    <div>
+      {products.map((item) => (
+        <div key={item.id} role="product">
+          {item.name}
+        </div>
+      ))}
+    </div>
+  );
 };
