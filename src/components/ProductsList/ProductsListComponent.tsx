@@ -23,7 +23,14 @@ export const ProductsListComponent: FC<Props> = ({ products }) => {
   };
   return (
     <div className="productslist__wrapper">
-      <div className="productslist__title__wrapper"></div>
+      <div className="productslist__title__wrapper">
+        <h3 className="productslist__title" role="wantTitle">
+          Fruit I need to buy
+        </h3>
+        <h3 className="productslist__title" role="haveTitle">
+          Fruit I have
+        </h3>
+      </div>
       <div className="productlist__content">
         <div className="productlist__want">
           {data
