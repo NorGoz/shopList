@@ -34,4 +34,10 @@ test("renders products", () => {
   fireEvent.click(wantProductsElement[0]);
   const haveProductsElement = screen.getAllByRole("haveProduct");
   expect(haveProductsElement.length).toBe(1);
+
+  const haveTitle = screen.getByRole("haveTitle");
+  expect(haveTitle).toHaveTextContent("Fruit I have");
+
+  const wantTitle = screen.getByRole("wantTitle");
+  expect(wantTitle).toHaveTextContent("Fruit I need to buy");
 });

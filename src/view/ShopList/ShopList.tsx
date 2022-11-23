@@ -3,6 +3,8 @@ import { HeaderComponent } from "../../components/Header/HeaderComponent";
 import { ProductsListComponent } from "../../components/ProductsList/ProductsListComponent";
 import { Product } from "../../components/ProductsList/interface";
 
+import "./ShopList.css";
+
 const initProducts = [
   { name: "tomato", id: 0, have: false },
   { name: "apple", id: 1, have: false },

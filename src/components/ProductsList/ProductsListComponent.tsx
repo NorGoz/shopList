@@ -23,31 +23,34 @@ export const ProductsListComponent: FC<Props> = ({ products }) => {
   };
   return (
     <div className="productslist__wrapper">
-      <div className="productlist__want">
-        {data
-          .filter((item) => !item.have)
-          .map((item) => (
-            <button
-              onClick={() => toggleHaveProduct(item.id)}
-              key={item.id}
-              role={item.have ? "haveProduct" : "wantProduct"}
-            >
-              {item.name}
-            </button>
-          ))}
-      </div>
-      <div className="productlist__have">
-        {data
-          .filter((item) => item.have)
-          .map((item) => (
-            <button
-              onClick={() => toggleHaveProduct(item.id)}
-              key={item.id}
-              role={item.have ? "haveProduct" : "wantProduct"}
-            >
-              {item.name}
-            </button>
-          ))}
+      <div className="productslist__title__wrapper"></div>
+      <div className="productlist__content">
+        <div className="productlist__want">
+          {data
+            .filter((item) => !item.have)
+            .map((item) => (
+              <button
+                onClick={() => toggleHaveProduct(item.id)}
+                key={item.id}
+                role={item.have ? "haveProduct" : "wantProduct"}
+              >
+                {item.name}
+              </button>
+            ))}
+        </div>
+        <div className="productlist__have">
+          {data
+            .filter((item) => item.have)
+            .map((item) => (
+              <button
+                onClick={() => toggleHaveProduct(item.id)}
+                key={item.id}
+                role={item.have ? "haveProduct" : "wantProduct"}
+              >
+                {item.name}
+              </button>
+            ))}
+        </div>
       </div>
     </div>
   );

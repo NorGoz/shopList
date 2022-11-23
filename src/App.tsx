@@ -4,7 +4,7 @@ import { ShopList } from "./view/ShopList/ShopList";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <ShopList />
     </div>
   );
