@@ -1,16 +1,12 @@
 import React, { FC, useState } from "react";
 import { Product } from "./interface";
+import { findOne } from "../../helpers/findOne";
 
 import "./ProductList.css";
 
 interface Props {
   products: Product[];
 }
-
-const findOne = (arr: Product[], id: number) => {
-  const one = arr.filter((item) => item.id === id);
-  return one[0];
-};
 
 export const ProductsListComponent: FC<Props> = ({ products }) => {
   const [data, setData] = useState<Product[]>(products);
