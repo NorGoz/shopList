@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { HeaderComponent } from "../../components/Header/HeaderComponent";
 import { ProductsListComponent } from "../../components/ProductsList/ProductsListComponent";
-import { Product } from "../../components/ProductsList/interface";
 
 import "./ShopList.css";
 
@@ -14,11 +13,10 @@ const initProducts = [
 ];
 
 export const ShopList = () => {
-  const [products, setProducts] = useState<Product[]>(initProducts);
   return (
     <div className="shoplist__wrapper">
       <HeaderComponent />
-      <ProductsListComponent products={products} />
+      <ProductsListComponent products={initProducts} />
     </div>
   );
 };
