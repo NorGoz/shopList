@@ -12,17 +12,12 @@ test("renders products", () => {
     { name: "pomelo", id: 4, have: false },
   ];
   const onClick = jest.fn();
-  const findOne = (arr: Product[], id: number) => {
-    const one = arr.filter((item) => item.id === id);
-    return one[0].have;
-  };
+
   render(<ProductsListComponent products={products} />);
   const wantProductsElement = screen.getAllByRole("wantProduct");
 
   expect(wantProductsElement[0]).toHaveTextContent(products[0].name);
   expect(wantProductsElement[0]).toBeInTheDocument();
-
-  // expect(findOne(products, 1)).toBeFalsy();
 
   expect(wantProductsElement[1]).toHaveTextContent(products[1].name);
   expect(wantProductsElement[1]).toBeInTheDocument();
